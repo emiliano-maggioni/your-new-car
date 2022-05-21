@@ -1,0 +1,9 @@
+@import "Utility.scss";
+
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1.4rem 2.5rem;
+    color:$titleColor;
+}
