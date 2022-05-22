@@ -16,8 +16,17 @@
     padding: 1rem 1.2rem ;
     margin: 0px;    
     height:7rem;
+    flex-wrap: wrap;
 }
 
+.row  small{
+    text-align: right;
+    width: 100%;
+    font-size: 0.77rem;
+    letter-spacing: 1px;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    padding-top: 0.3rem;
+}
 .row:nth-child(even) {background: $white2}  
 
 .input {
@@ -37,5 +46,6 @@
 .container form  button  {
     align-self: flex-end;
     margin-right: 1rem;
+    margin-top: 1.5rem;
 }
 

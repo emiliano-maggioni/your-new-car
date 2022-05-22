@@ -9,31 +9,30 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { postAPI } from 'utility/callsAPI';
 import ButtonBase from 'components/buttonbase/ButtonBase';
 import { TextField } from '@mui/material';
+import {useDispatch, useSelector} from 'react-redux';
+import {sendCarData, getCarData } from "store/cars"; 
+import { carInfo } from 'utility/Types';
 
 const AddProductView = () => {
+  const dispatch = useDispatch();
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     mode: "onSubmit",
   });
 
-  const onSubmit = async (data: any) => {
-    if (data) {
-      let dataToSend = { ...data };
-      console.log("DATI:", data);
-
-      //const dataRes = await postAPI("/api/cart", dataToSend);
-
-    }
+  const onSubmit = async(data: any) => {
+    if(data)
+      dispatch<any>(sendCarData(data));    
   }
 
   const fuelType = [{ id: 1, type: "gasoline" }, { id: 2, type: "GPL" }, { id: 3, type: "diesel" }];
 
   return (
     <section className={classes.container}>
-      <TitleBar title="Add Product" btText="View Cars" btPath="/" />
+      <TitleBar title="Add New Car" btText="View Cars" btPath="/" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.row}>
-          <span>Car name: </span>
+          <span >Name: </span>
           <TextField
             className={classes.input}
             id="name"
@@ -48,7 +47,7 @@ const AddProductView = () => {
           <TextField
             className={classes.input}
             id="year"
-            label="Year"
+            label="Year e.g. 2018"            
             defaultValue=""
             helperText={!!errors.year ? "Insert year." : null}
             {...register("year", { required: true, minLength: 4, maxLength: 4 })}
@@ -59,10 +58,10 @@ const AddProductView = () => {
           <FormControl className={classes.input}>
             <Select
               id="fuel"
-              defaultValue={""}
+              defaultValue=""
               {...register("fuel", { required: "Select a fuel", })}
             >
-              <MenuItem key="" value="" >Select</MenuItem>
+              <MenuItem key="" value="" disabled >Select</MenuItem>
               {fuelType.map((el, index) => <MenuItem key={el.id} value={el.type}>{el.type}</MenuItem>)}
             </Select>
             <FormHelperText>{!!errors.fuel ? errors.fuel.message : null}</FormHelperText>
@@ -78,6 +77,18 @@ const AddProductView = () => {
             helperText={!!errors.price ? "Insert price." : null}
             {...register("price", { required: true })}
           />
+        </div>
+        <div className={classes.row}>
+          <span>Image link: </span>
+          <TextField
+            className={classes.input}
+            id="imgurl"
+            label="Paste image URL"
+            defaultValue=""
+            helperText={!!errors.imgurl ? "Insert image URL" : null}
+            {...register("imgurl", { required: true })}
+          />
+          {!errors.imgurl && <small>Insert URL image, allowed only square images</small> }
         </div>
         <ButtonBase text="Insert to Database" type="submit" />
       </form>

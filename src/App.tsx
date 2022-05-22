@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Routing from "./routes/Routing";
 import Header from "./components/header/Header";
 import { Provider } from "react-redux";
-import { store } from 'store';
+import store from 'store';
 
 const App = () => {
   return (

@@ -1,12 +1,6 @@
-export type todosResponse = {
-  userId: number;
-  id: any;
-  title: number;
-  completed: boolean;
-};
 
-export type productInfo = {
-  idprod:any;
+export type carInfo = {
+  idprod?:any;
   name: string;
   year: string;
   fuel: string;
@@ -14,9 +8,13 @@ export type productInfo = {
   imgurl: string;
 };
 
+// export type defState = {
+//   isAuth: boolean
+//   currentUser?: any
+//   isLoading: boolean
+//   error: any
+// } 
 export type defState = {
-  isAuth: boolean
-  currentUser?: any
-  isLoading: boolean
-  error: any
+  cars: carInfo[]; 
+  favorites: any[];
 } 
