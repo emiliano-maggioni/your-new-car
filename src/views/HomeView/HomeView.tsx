@@ -1,6 +1,7 @@
 import ItemsContainer from 'components/itemsContainer/ItemsContainer';
 import TitleBar from 'components/titleBar/TitleBar';
 import React from 'react';
+import ControlsWrapper from './components/ControlsWrapper/ControlsWrapper';
 import classes from "./HomeView.module.scss";
 
 const HomeView = () => {
@@ -19,8 +20,8 @@ const HomeView = () => {
   const searchString = "";
   return (
     <section className={classes.container}>         
-    <TitleBar title="Car Availables"  btText="Back to demo" btPath="/" />
-    {/* <SearchBar /> */} 
+    <TitleBar title="Car Availables"  btText="Back" btPath="/addproduct" />
+    <ControlsWrapper /> 
     <ItemsContainer list={(searchString) ? list.filter((el:any) => (el.brand.toLowerCase() == searchString) ||  (el.model.toLowerCase() == searchString) ) : list } />
 
     </section>

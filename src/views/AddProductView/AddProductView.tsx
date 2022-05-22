@@ -30,7 +30,7 @@ const AddProductView = () => {
 
   return (
     <section className={classes.container}>
-      <TitleBar title="Add Product" btText="Back to demo" btPath="/" />
+      <TitleBar title="Add Product" btText="View Cars" btPath="/" />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.row}>
           <span>Car name: </span>

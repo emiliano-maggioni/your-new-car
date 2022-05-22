@@ -26,7 +26,7 @@
 .container figure > img:hover{
     filter: contrast(1.05);
 }
-.container figure:hover  > figcaption { 
+.container figure:hover  > figcaption, .favourites:hover { 
     opacity:0.9;
 }
 
@@ -65,6 +65,34 @@
     width:2.1rem;
     height:2.1rem;
     position: absolute; 
-    right: 0.7rem;
-    top: 0.7rem;
+    right: 0.35rem;
+    top: 0.75rem;
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .container figure{
+        width:14.4rem;    
+    }
+    
+    .container figure > img{ 
+        max-height: 13rem;
+    }
+
+    
+.container figure  > figcaption > strong{
+
+    font-size: 1.3rem;
+    line-height: 1.88rem;
+}
+
+.container figure  > figcaption > span{
+    font-size: 1.2rem;  
+
+}
+
+        
+  
 }
