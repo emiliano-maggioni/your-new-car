@@ -1,14 +1,16 @@
 import React  from 'react'
 import classes from "./Item.module.scss";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 const Item = (props) => {
   return (
-      <figure className={classes.container} onClick={props.onClick} >
-        <img src={props.imgurl} />
-        <figcaption><strong>{props.name}</strong>  <span>{props.price}€</span></figcaption> 
-        <div className={classes.favourites}  > <FavoriteIcon /></div>
-      </figure>
+      <div className={classes.container} >
+        <figure  >
+          <img src={`/images/cars/${props.imgurl}`} />
+          <figcaption><strong>{props.name}</strong>  <span>{props.price}€</span></figcaption> 
+          <div className={classes.favourites} > <FavoriteBorderOutlinedIcon /></div>
+        </figure>
+      </div>
   );
 }
 

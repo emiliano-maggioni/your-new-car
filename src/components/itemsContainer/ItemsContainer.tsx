@@ -8,7 +8,8 @@ const ItemsContainer = (props:any) => {
   
   return (
     <div className={classes.container} >
-      { (props.list?.length) ? props.list.map((el:any)=> <Item key={el.idprod} name={el.name} year={el.year} fuel={el.fuel} price={el.price} imgurl={el.imgurl}  onClick={ ()=>  navigate(`/details/${el.id}`)}   />) 
+      { (props.list?.length) ? props.list.map((el:any)=> <Item key={el.idprod} name={el.name} year={el.year} fuel={el.fuel} price={el.price} imgurl={el.imgurl} 
+       />) 
        : (<p>No products found</p>)     }
      </div>
   );

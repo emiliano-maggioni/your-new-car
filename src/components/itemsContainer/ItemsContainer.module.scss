@@ -6,17 +6,17 @@
     width: 100%;
 }
 
-.container > figure{
-    flex-basis: 21%;
-    margin: 1rem 2%;
+.container > div{
+    flex-basis: 46%;
+    margin: 0.1rem 2%;
     border-radius: 0.4rem;
-    padding: 2rem 0.4rem;
+    padding: 0rem 0.4rem;
 }
 
-.container > figure:nth-child(odd) {
+.container > div:nth-child(odd) {
     animation: fadeIn 1100ms ease-in;
 }
-.container > figure:nth-child(even) {
+.container > div:nth-child(even) {
     animation: showEven 1500ms ease-in;
 }
 
@@ -46,10 +46,11 @@
 
 
 
-@media screen and (max-width: 1150px) {
+@media screen and (min-width: 992px) {
 
-    .container > figure{
-        flex-basis: 46%;
+    .container > div{
+
+        flex-basis: 21%;
         margin: 1rem 2%;
     }
     
