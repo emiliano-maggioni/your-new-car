@@ -4,10 +4,19 @@ export type todosResponse = {
   title: number;
   completed: boolean;
 };
+
 export type productInfo = {
-  name: number;
-  year: number;
-  displacement: string;
+  idprod:any;
+  name: string;
+  year: string;
   fuel: string;
-  price: string;
+  price: number;
+  imgurl: string;
 };
+
+export type defState = {
+  isAuth: boolean
+  currentUser?: any
+  isLoading: boolean
+  error: any
+} 

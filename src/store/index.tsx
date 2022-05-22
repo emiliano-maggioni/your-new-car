@@ -1,5 +1,6 @@
 import { createSlice, configureStore, PayloadAction  } from '@reduxjs/toolkit';
-import { defState } from "types/types";
+import { defState } from 'utility/Types';
+
 
 export const initialState: defState = {
     isAuth: false,

@@ -1,0 +1,49 @@
+@import "Utility.scss";
+
+.container{
+    display: flex;
+    min-height: 13rem;
+    flex-direction: column;
+    overflow:hidden;
+}
+.container:hover{
+    opacity:0.9;
+    cursor:pointer;
+}
+.container > img{
+    max-height: 10rem;
+    align-self: center;
+}
+
+.container > figcaption{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;  
+    
+    font-size: 1.6rem;  
+}
+
+.container > figcaption > span{
+ 
+    font-size: 1.1rem;  
+}
+
+.favourites{
+    display: flex;
+    border-radius: 2rem;
+    background: #ccc;
+    position: absolute;
+    right: 0.5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    .container{
+        min-height: 15rem;
+
+    }
+    
+}

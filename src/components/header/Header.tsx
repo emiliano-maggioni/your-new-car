@@ -7,8 +7,8 @@ const Header = () => {
 
   return (
     <header className={classes.container} >
-        <figure className={classes.imgContainer} onClick={() => navigate("/")}  ><img src="/images/logo.png" /> </figure>
-        <span onClick={() => navigate("/")} >Your Next Car</span>
+        <figure className={classes.imgContainer} onClick={() => navigate("/")}  ><img src="/images/logo.png" alt="your next car logo" height={50} /> </figure>
+        <span onClick={() => navigate("/")} >Your New Car</span>
     </header>
   );
 }

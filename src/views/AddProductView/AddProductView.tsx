@@ -1,21 +1,88 @@
 import TitleBar from 'components/titleBar/TitleBar';
 import React from 'react';
 import classes from "./AddProductView.module.scss";
+import { useForm } from "react-hook-form";
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import FormHelperText from '@mui/material/FormHelperText';
+import { postAPI } from 'utility/callsAPI';
+import ButtonBase from 'components/buttonbase/ButtonBase';
+import { TextField } from '@mui/material';
 
 const AddProductView = () => {
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    mode: "onSubmit",
+  });
+
+  const onSubmit = async (data: any) => {
+    if (data) {
+      let dataToSend = { ...data };
+      console.log("DATI:", data);
+
+      //const dataRes = await postAPI("/api/cart", dataToSend);
+
+    }
+  }
+
+  const fuelType = [{ id: 1, type: "gasoline" }, { id: 2, type: "GPL" }, { id: 3, type: "diesel" }];
+
   return (
-    <section className={classes.container}> 
-      <TitleBar title="Add Product"  btText="Back to demo" btPath="/" />
+    <section className={classes.container}>
+      <TitleBar title="Add Product" btText="Back to demo" btPath="/" />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={classes.row}>
+          <span>Car name: </span>
+          <TextField
+            className={classes.input}
+            id="name"
+            label="Car Name"
+            defaultValue=""
+            helperText={!!errors.name ? "Insert car name and model" : null}
+            {...register("name", { required: true, minLength: 3 })}
+          />
+        </div>
+        <div className={classes.row}>
+          <span>Year: </span>
+          <TextField
+            className={classes.input}
+            id="year"
+            label="Year"
+            defaultValue=""
+            helperText={!!errors.year ? "Insert year." : null}
+            {...register("year", { required: true, minLength: 4, maxLength: 4 })}
+          />
+        </div>
+        <div className={classes.row}>
+          <span>Fuel: </span>
+          <FormControl className={classes.input}>
+            <Select
+              id="fuel"
+              defaultValue={""}
+              {...register("fuel", { required: "Select a fuel", })}
+            >
+              <MenuItem key="" value="" >Select</MenuItem>
+              {fuelType.map((el, index) => <MenuItem key={el.id} value={el.type}>{el.type}</MenuItem>)}
+            </Select>
+            <FormHelperText>{!!errors.fuel ? errors.fuel.message : null}</FormHelperText>
+          </FormControl>
+        </div>
+        <div className={classes.row}>
+          <span>Price: </span>
+          <TextField
+            className={classes.input}
+            id="price"
+            label="Price"
+            defaultValue=""
+            helperText={!!errors.price ? "Insert price." : null}
+            {...register("price", { required: true })}
+          />
+        </div>
+        <ButtonBase text="Insert to Database" type="submit" />
+      </form>
 
-      Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Nulla quis lorem ut libero malesuada feugiat. Donec rutrum congue leo eget malesuada.
 
-Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt.
-
-Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-
-Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta.
-
-Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     </section>
   );
 }

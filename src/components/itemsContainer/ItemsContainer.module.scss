@@ -1,0 +1,56 @@
+@import "Utility.scss";
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container > figure{
+    flex-basis: 21%;
+    margin: 1rem 2%;
+    border-radius: 0.4rem;
+    padding: 2rem 0.4rem;
+}
+
+.container > figure:nth-child(odd) {
+    animation: fadeIn 1100ms ease-in;
+}
+.container > figure:nth-child(even) {
+    animation: showEven 1500ms ease-in;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0;    }
+    15% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+ 
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0;    }
+    15% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+
+@keyframes showEven{
+    0% { opacity: 0;    }
+    35% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+
+@-webkit-keyframes showEven{
+    0% { opacity: 0;    }
+    35% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+
+
+
+@media screen and (max-width: 1150px) {
+
+    .container > figure{
+        flex-basis: 46%;
+        margin: 1rem 2%;
+    }
+    
+}

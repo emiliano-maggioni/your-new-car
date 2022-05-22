@@ -1,53 +1,75 @@
 @import "./Utility";
 
 /**** GENERAL STYLES ***/
-html{
-  font-size:16px;
-}
-figure{
-  padding:0.4rem;
-  margin:0px;
-}
-figure > img{
-  max-height:100%;
+html {
+  font-size: 16px;
 }
 
-body{
+figure {
+  padding: 0.4rem;
+  margin: 0px;
+}
+
+figure>img {
+  max-height: 100%;
+}
+
+body {
   font-family: 'Oswald', sans-serif;
   font-size: 0.9rem;
   line-height: 1.2rem;
   color: $textColor;
+  overflow: hidden;
 }
 
-body *{
+body * {
   box-sizing: border-box;
 }
-#root{
+
+#root {
   width: 100%;
-    height: 100vh;
-    overflow:auto;
-    overflow-x:hidden;
-    overflow-y:scroll;  
+  height: 100vh;
 }
 
-main{
-  height:calc(100vh - 8rem);
-  background:$white;
+main {
+  width: 100%;
+  height: calc(100vh - $headerHeightM);
+  margin-top: $headerHeightM;
+  background: $white;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-main > section{
-  box-sizing: border-box;
+main>section {
+  box-sizing: border-box;  
   padding: $paddingViews;
+  min-height: calc(100vh - $headerHeightM);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-div p.MuiFormHelperText-root{
-  color:#ff0000;
-}
-label.MuiFormLabel-root.Mui-focused{
-  color:$titleColor;
+div p.MuiFormHelperText-root {
+  color: #ff0000;
 }
 
-div.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline{
+label.MuiFormLabel-root.Mui-focused {
+  color: $titleColor;
+}
+
+div.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
   border-color: $titleColor;
 }
 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  main {
+    margin-top: $headerHeight;
+    height: calc(100vh - $headerHeight);
+  }
+
+  main>section {    min-height: calc(100vh - $headerHeight);   }
+
+
+}
