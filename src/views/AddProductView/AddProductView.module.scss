@@ -1,0 +1,51 @@
+@import "Utility.scss";
+
+
+.container{
+    max-width: 52rem;
+    margin: 0 auto;    
+}
+.container form{
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+}
+
+.row  {
+    display: flex;
+    padding: 1rem 1.2rem ;
+    margin: 0px;    
+    height:7rem;
+    flex-wrap: wrap;
+}
+
+.row  small{
+    text-align: right;
+    width: 100%;
+    font-size: 0.77rem;
+    letter-spacing: 1px;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    padding-top: 0.3rem;
+}
+.row:nth-child(even) {background: $white2}  
+
+.input {
+    padding: 0.25rem;
+    display: flex;
+    width: 60%;
+}
+
+.row > span  { 
+    margin-right: 0.5rem;
+    margin-top: 1.1rem;
+    flex:1;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+.container form  button  {
+    align-self: flex-end;
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+}
+

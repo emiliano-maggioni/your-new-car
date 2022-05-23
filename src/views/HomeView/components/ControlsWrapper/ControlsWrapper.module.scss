@@ -1,0 +1,94 @@
+@import "Utility.scss";
+
+
+.container{ 
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.row{ 
+    width:100%;
+    display: flex;
+    justify-content: center;
+    border-bottom:1px solid $grey;
+    padding: 0.5rem 0rem;
+}
+
+.container .row:first-child{ 
+    justify-content: flex-end;
+    align-items: center;
+    padding: 00rem;
+}
+
+.container .row:first-child svg{ 
+    font-size: 2.4rem;    
+}
+
+.userIcon{ 
+    padding: 0.4rem 1rem;
+    border-right: 1px solid $grey;
+    border-left: 1px solid $grey;
+    box-sizing: content-box;
+}
+
+
+.searchBox{ 
+    display: flex;
+    width: 1.5rem;
+    margin:0 1.2rem 0 1.3rem;
+    cursor:pointer;
+}
+
+.searchBox *{ 
+    cursor:pointer;
+}
+
+.searchBox > div > div::before{ 
+    border-bottom:none !important;
+}
+
+.searchBoxExpanded{ 
+    display: flex;
+    width:8rem;    
+    margin:0 1.2rem 0 1.3rem;
+}
+
+
+.searchInfo{ 
+    flex-direction: column;
+    align-items: center;
+    padding-top:1.8rem;
+    padding-bottom: 2rem;
+    min-height:9rem;
+}
+
+.searchInfo span{ 
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.searchInfo h3{ 
+    text-align: center;
+    font-size: 1.9rem;
+    line-height:2.1rem;    
+    margin-bottom: 0rem;
+}
+
+.searchInfo + .row{ 
+    justify-content: space-between;
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    .searchInfo + .row{ 
+        justify-content: flex-end;    
+    }
+    .searchInfo + .row > *{ 
+       padding-right:1rem;  
+    }
+    
+  
+}

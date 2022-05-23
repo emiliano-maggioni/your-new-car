@@ -1,0 +1,84 @@
+@import "Utility.scss";
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container > div{
+    flex-basis: 46%;
+    margin: 0.1rem 2%;
+    border-radius: 0.4rem;
+    padding: 0rem 0.4rem;
+}
+
+.container > div:nth-child(odd) {
+    animation: fadeIn 1100ms ease-in;
+}
+.container > div:nth-child(even) {
+    animation: showEven 1500ms ease-in;
+}
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+
+.pagination button{
+    font-size: 1rem;
+    color:$textColorLight;
+    font-family: $fontdef;
+}
+
+
+.notfound{
+    margin: 0 auto;
+    font-size: 1.4rem;
+    padding: 1.8rem 3rem;
+    line-height: 2rem;
+}
+
+
+@keyframes fadeIn {
+    0% { opacity: 0;    }
+    15% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+ 
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0;    }
+    15% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+
+@keyframes showEven{
+    0% { opacity: 0;    }
+    35% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+
+@-webkit-keyframes showEven{
+    0% { opacity: 0;    }
+    35% { opacity: 0;    }
+    100%{ opacity: 1;    }
+}
+
+
+
+@media screen and (min-width: 992px) {
+
+    .container > div{
+
+        flex-basis: 21%;
+        margin: 1rem 2%;
+    }
+    
+.notfound{
+    padding: 9rem 3rem;
+}
+    
+}
