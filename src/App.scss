@@ -67,7 +67,7 @@ div.MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline {
 @media (min-width: 992px) {
   main {
     margin-top: $headerHeight;
-    height: calc(100vh - $headerHeight);
+    height: calc(100% - $headerHeight);
   }
 
   main>section {    min-height: calc(100vh - $headerHeight);   }

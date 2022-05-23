@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import classes from "./ControlsWrapper.module.scss";
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
@@ -7,36 +7,37 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import {useDispatch, useSelector} from 'react-redux';
+import { filterProductsByString } from 'store/cars';
 
-const ControlsWrapper = () => {
+const ControlsWrapper = (props:any) => {
 
-  const [filter, setFilter] = useState<string>();  
+  const dispatch = useDispatch();
+  const searchString  = useSelector((state:any) => state.mainReducer.searchString); 
   const [searchExpanded, setSearchExpanded] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(()=>{
+    //RESET SEARCH STRING ON COMPONENT MOUNT
+    dispatch<any>(filterProductsByString(""));
+},[]);
   
   const toggleSearchBar = () => {
     if(!searchExpanded)
       setSearchExpanded(!searchExpanded);
   }
-
-  const searchProducts = (val: any) => {
-    let oldVal;
-    if (inputRef)
-      oldVal = inputRef!.current!.value;
-
+  const searchProducts = () => {
+    let oldVal = inputRef!.current!.value;
     const timer = setTimeout(() => {
-      // if (oldVal == inputRef.current.value)
-      //UPDATE VALUE SEARCH
-      //defcontext.setItemsFilter(inputRef.current.value);      
+        if(oldVal == inputRef!.current!.value)
+          dispatch<any>(filterProductsByString(inputRef!.current!.value));
+    
     }, 500);
     return () => {
       clearTimeout(timer);
     };
 
   }
-  const fuelType = [{ id: 1, type: "gasoline" }, { id: 2, type: "GPL" }, { id: 3, type: "diesel" }];
-
   return (
     <div className={classes.container}>
       <div className={classes.row}>
@@ -52,38 +53,35 @@ const ControlsWrapper = () => {
               </InputAdornment>
             ),
           }}          
-        variant="standard"
-          onChange={(e) => searchProducts(e.target.value)}
+          variant="standard"
+          onChange={() => searchProducts()}
         />
         </div>
       </div>
       <div className={` ${classes.row} ${classes.searchInfo}`}>
-        <span>123 items found</span>
-        <h3>Search Results for "sdvsdvsdv"</h3>
+          <span>{props.itemsTot} items found</span>
+        { (searchString) && <h3>Search Results for "{searchString}"</h3>  }
+
       </div>
       <div className={classes.row}>
         <FormControl className={classes.input}>
           <Select
             displayEmpty
             value={""}
-            onChange={(e) => setFilter(e.target.value)}
           >
             <MenuItem value="" disabled>
-              Selezione config
+              PRODUCTS ({props.itemsTot})
             </MenuItem>
-            {fuelType.map((el, index) => <MenuItem key={el.id} value={el.type}>{el.type}</MenuItem>)}
           </Select>
         </FormControl>
         <FormControl className={classes.input}>
           <Select
             displayEmpty
             value={""}
-            onChange={(e) => setFilter(e.target.value)}
           >
             <MenuItem value="" disabled> 
-              Selezione config
+              ORDER BY
             </MenuItem>
-            {fuelType.map((el, index) => <MenuItem key={el.id} value={el.type}>{el.type}</MenuItem>)}
           </Select>
         </FormControl>
       </div>

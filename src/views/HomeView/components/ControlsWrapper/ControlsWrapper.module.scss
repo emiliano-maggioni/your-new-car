@@ -59,6 +59,8 @@
     flex-direction: column;
     align-items: center;
     padding-top:1.8rem;
+    padding-bottom: 2rem;
+    min-height:9rem;
 }
 
 .searchInfo span{ 
@@ -69,7 +71,8 @@
 .searchInfo h3{ 
     text-align: center;
     font-size: 1.9rem;
-    line-height:2.1rem;
+    line-height:2.1rem;    
+    margin-bottom: 0rem;
 }
 
 .searchInfo + .row{ 

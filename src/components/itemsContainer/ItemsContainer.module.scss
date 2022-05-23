@@ -34,6 +34,15 @@
     font-family: $fontdef;
 }
 
+
+.notfound{
+    margin: 0 auto;
+    font-size: 1.4rem;
+    padding: 1.8rem 3rem;
+    line-height: 2rem;
+}
+
+
 @keyframes fadeIn {
     0% { opacity: 0;    }
     15% { opacity: 0;    }
@@ -67,5 +76,9 @@
         flex-basis: 21%;
         margin: 1rem 2%;
     }
+    
+.notfound{
+    padding: 9rem 3rem;
+}
     
 }

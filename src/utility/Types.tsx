@@ -8,13 +8,16 @@ export type carInfo = {
   imgurl: string;
 };
 
-// export type defState = {
-//   isAuth: boolean
-//   currentUser?: any
-//   isLoading: boolean
-//   error: any
-// } 
+ 
 export type defState = {
   cars: carInfo[]; 
   favorites: any[];
+  searchString:any;
+} 
+
+ 
+export type paginationInfo = {
+  page: number;
+  indexStart: number;
+  indexEnd: number;
 } 

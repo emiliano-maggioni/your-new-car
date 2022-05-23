@@ -6,11 +6,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import FormHelperText from '@mui/material/FormHelperText';
-import { postAPI } from 'utility/callsAPI';
 import ButtonBase from 'components/buttonbase/ButtonBase';
 import { TextField } from '@mui/material';
-import {useDispatch, useSelector} from 'react-redux';
-import {sendCarData, getCarData } from "store/cars"; 
+import {useDispatch} from 'react-redux';
+import {sendCarData } from "store/cars"; 
 import { carInfo } from 'utility/Types';
 
 const AddProductView = () => {
@@ -47,9 +46,10 @@ const AddProductView = () => {
           <TextField
             className={classes.input}
             id="year"
-            label="Year e.g. 2018"            
+            label="Year"            
             defaultValue=""
-            helperText={!!errors.year ? "Insert year." : null}
+            inputProps={{ maxLength: 4   }}
+            helperText={!!errors.year ? "Insert a valid Year, e.g. 2022" : null}
             {...register("year", { required: true, minLength: 4, maxLength: 4 })}
           />
         </div>
@@ -59,9 +59,10 @@ const AddProductView = () => {
             <Select
               id="fuel"
               defaultValue=""
+              displayEmpty
               {...register("fuel", { required: "Select a fuel", })}
             >
-              <MenuItem key="" value="" disabled >Select</MenuItem>
+              <MenuItem key="" value="" disabled >Select fuel</MenuItem>
               {fuelType.map((el, index) => <MenuItem key={el.id} value={el.type}>{el.type}</MenuItem>)}
             </Select>
             <FormHelperText>{!!errors.fuel ? errors.fuel.message : null}</FormHelperText>
@@ -88,7 +89,7 @@ const AddProductView = () => {
             helperText={!!errors.imgurl ? "Insert image URL" : null}
             {...register("imgurl", { required: true })}
           />
-          {!errors.imgurl && <small>Insert URL image, allowed only square images</small> }
+          {!errors.imgurl && <small>Insert URL image, allowed only images 364x320 px</small> }
         </div>
         <ButtonBase text="Insert to Database" type="submit" />
       </form>

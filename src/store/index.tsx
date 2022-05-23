@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 
 const reducer = combineReducers({
-    cars,
+    mainReducer:cars,
   })
 
 const store = configureStore({

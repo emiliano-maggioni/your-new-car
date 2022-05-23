@@ -1,4 +1,3 @@
-import React, { useRef, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import HomeView from "views/HomeView/HomeView";
 import AddProductView from "views/AddProductView/AddProductView"; 

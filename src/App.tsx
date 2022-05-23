@@ -12,9 +12,9 @@ const App = () => {
     <Provider store={store} >
       <BrowserRouter>
         <Header />
-        <main>
-          <Routing />
-        </main>
+          <main>
+            <Routing />
+          </main>
       </BrowserRouter>
     </Provider>
   );
