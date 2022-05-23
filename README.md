@@ -1,8 +1,8 @@
 # your-new-car
 ReactJS exercise with Redux, Typescript, Material UI, API Rest with firebase and so on.
 Is a Responsive Web app where you can insert a new product (a car) and view the product added, search them, add them to favorites...
-<br />
-If you want to add anew car you can use one of these images:<br />
+<br /><br /><br />
+If you want to add a new car you can use one of these images:<br />
 <br />
 https://i.ibb.co/267DQ80/147.jpg <br />
 https://i.ibb.co/D1258FS/500.jpg <br />
